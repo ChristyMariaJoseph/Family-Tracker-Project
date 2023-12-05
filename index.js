@@ -4,6 +4,7 @@ import pg from "pg";
 
 const app = express();
 const port = 3000;
+const hostname = '0.0.0.0';
 
 const db = new pg.Client({
   user: "postgres",
@@ -104,6 +105,6 @@ app.post("/new", async (req, res) => {
   res.redirect("/");
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+app.listen(port, hostname, () => {
+  console.log(`Server running on http://${hostname}:${port}`);
 });
